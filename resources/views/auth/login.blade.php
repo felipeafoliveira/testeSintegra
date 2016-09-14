@@ -1,32 +1,29 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Laravel</title>
-        <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
-    </head>
-    <body>
-
-        
-        <form method="POST" action="/auth/login">
-            {!! csrf_field() !!}
-        
-            <div>
-                Usuário
-                <input type="user" name="user" value="{{ old('user') }}">
+@extends('layout.top')
+   @section('content')
+       <div class="panel panel-default">
+            <div class="panel-heading">
+              <h3 class="panel-title">Login</h3>
             </div>
-        
-            <div>
-                Senha
-                <input type="password" name="password" id="password">
+            <div class="panel-body">
+             <form method="POST" action="/auth/login">
+                 {!! csrf_field() !!}
+             
+                 <div class="input-group">
+                     Usuário
+                     <input type="user" class="form-control" name="user" value="{{ old('user') }}">
+                 </div>
+             
+                 <div class="input-group">
+                     Senha
+                     <input type="password" class="form-control" name="password" id="password">
+                 </div>
+             
+                 <div>
+                     <button type="submit" class="btn btn-default">Login</button>
+                 </div>
+             </form>
             </div>
-        
-            <div>
-                <input type="checkbox" name="remember"> Lembrar Senha
-            </div>
-        
-            <div>
-                <button type="submit">Login</button>
-            </div>
-</form>
-    </body>
-</html>
+       </div>
+   @endsection 
+@extends('layout.bottom')
+   

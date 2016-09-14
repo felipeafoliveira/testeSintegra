@@ -21,6 +21,9 @@ Route::get('auth/logout', 'Auth\AuthController@getLogout');
 
 Route::group(['middleware' => 'auth'], function() {
     Route::get('/', 'HomeController@index');
+    Route::get('/sintegra', 'HomeController@showSintegra');
+    Route::post('/sintegra/excluir', 'HomeController@removeSintegra');
+    
     
     //Envia consulta para o site sintegra
     Route::post('/api', 'ApiController@send');
